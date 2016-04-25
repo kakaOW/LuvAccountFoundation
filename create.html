@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+
+    <title>Main Page</title>
+</head>
+
+<body>
+    <div class="title-bar title">
+        <a href="main.html">
+            <div class="title-bar-title">LuvAccount</div>
+        </a>
+        <ul class="menu align-right">
+            <!-- <li>
+                    <input type="search" placeholder="Search">
+                </li>
+                <li>
+                    <button type="button" class="button small">Search</button>
+                </li> -->
+            <li><a href="#">Login</a></li>
+        </ul>
+    </div>
+
+    <div class="row small-12 medium-9 align-center">
+        <form class="small-12 medium-9" method="post" action="">
+            <div class="row">
+                <div class="small-3 columns">
+                    <label>Subject</label>
+                </div>
+                <div class="small-9 columns">
+                    <input type="text" name="goal" id="goal" placeholder="I will achieve this goal!" />
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-3 columns">
+                    <label>Description</label>
+                </div>
+                <div class="small-9 columns">
+                    <textarea name="goal" id="goal" placeholder="Travel to Orlando as a reward"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="small-5 columns">
+                    <div class="button-group">
+                        <button class="button secondary" type="reset" value="Reset">Clear</button>
+                        <button class="button" type="submit" value="Submit">Sumbit</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+                <label class="small-2 large-1 shrink columns">ID</label>
+                <div class="small-5 large-3 columns">
+                    <label>Date</label>
+                    <input type="date" name="date" id="date" placeholder="" />
+                </div>
+                <div class="small-5 large-2 columns">
+                    <label>Title</label>
+                    <input type="text" name="title" id="title" placeholder="Title" />
+                </div>
+                <div class="small-9 large-4 columns">
+                    <label>Entry</label>
+                    <textarea name="entry" id="entry" placeholder="Entry" row="1"></textarea>
+                </div>
+                <div class="small-3 large-2 columns">
+                    <label>Point</label>
+                    <input type="number" placeholder="Point" />
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+
+
+
+
+
+    <hr />
+
+    <footer class="row">
+        <div class="small-12 columns">
+            <p>All right reserved: © Yung Wei · 2016</p>
+        </div>
+    </footer>
+
+
+    <!-- js -->
+    <script src="js/vendor/jquery.min.js"></script>
+    <script src="js/vendor/what-input.min.js"></script>
+    <script src="js/vendor/foundation.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
