@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="mdcstyle.css" />
+    <title>Submission form</title>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="content">
+        <h2>header text</h2>
+        <p>Please complete this form for Udpates. Add a new line if you have more than one project.</p>
+        <form id="myform" name="form1" method="get" action="signup2.php">
+            <table class="dd" width="100px" id="data">
+                <tr>
+
+                    <td>Area:
+                        <input class="textfield" name="area[0]" id="area[0]" type="text" />
+                    </td>
+                    <td>Contractor:
+                        <input class="textfield" name="contractor[0]" id="contractor[0]" type="text" />
+                    </td>
+
+                </tr>
+            </table>
+            <input class="subbutton" type="submit" name="Submit" value="Submit Form">
+        </form>
+
+
+
+        <button id="addnew" name="addnew" value="Add new item">Add new entry</button>
+        <input type="hidden" id="items" name="items" value="1" />
+        <br>
+    </div>
+    
+
+    <script type='text/javascript'>
+        //<![CDATA[
+        $(document).ready(function() {
+            var currentItem = 0;
+            $('#addnew').click(function() {
+                currentItem++;
+                $('#items').val(currentItem);
+                var strToAdd = '<tr><td>Area:<input class="textfield"  name="area[' + currentItem + ']" id =" area[' + currentItem + ']" type="text" /></td><td>Contractor:<input class="textfield"  name="contractor[' + currentItem +
+                    ']" id ="contractor[' + currentItem + ']"type="text" /></td></tr>';
+                $('#data').append(strToAdd);
+
+            });
+        });
+
+        //]]>
+    </script>
+</body>
+
+
+</html>

@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Damion' rel='stylesheet' type='text/css'> -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="css/app.css">
 
 
@@ -30,13 +30,13 @@
     </div>
 
     <div class="row small-12 medium-9 align-center">
-        <form class="small-12 medium-9" method="post" action="">
+        <form method="post" action="">
             <div class="row">
                 <div class="small-3 columns">
                     <label>Subject</label>
                 </div>
                 <div class="small-9 columns">
-                    <input type="text" name="goal" id="goal" placeholder="I will achieve this goal!" />
+                    <input type="text" name="subject" id="subject" placeholder="I will achieve this goal!" required/>
                 </div>
             </div>
 
@@ -45,11 +45,21 @@
                     <label>Description</label>
                 </div>
                 <div class="small-9 columns">
-                    <textarea name="goal" id="goal" placeholder="Travel to Orlando as a reward"></textarea>
+                    <textarea name="description" id="description" placeholder="Travel to Orlando as a reward"></textarea>
                 </div>
             </div>
+
             <div class="row">
-                <div class="small-5 columns">
+                <div class="small-3 columns">
+                    <label>Total Point to achieve</label>
+                </div>
+                <div class="small-3 columns">
+                    <input type="number" name="totalpoint" id="totalpoint" placeholder="100" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="small-12 columns">
                     <div class="button-group">
                         <button class="button secondary" type="reset" value="Reset">Clear</button>
                         <button class="button" type="submit" value="Submit">Sumbit</button>
@@ -58,30 +68,45 @@
             </div>
 
 
+            <div id="data">
 
-            <div class="row">
-                <label class="small-2 large-1 shrink columns">ID</label>
-                <div class="small-5 large-3 columns">
-                    <label>Date</label>
-                    <input type="date" name="date" id="date" placeholder="" />
+                <div class="row">
+                    <div class="small-2 large-1 shrink columns">
+                        <label>ID</label>
+                        <label>1</label>
+                    </div>
+                    <div class="small-5 large-3 columns">
+                        <label>Date</label>
+                        <input type="date" name="date[0]" id="date[0]" placeholder="" />
+                    </div>
+                    <div class="small-5 large-2 columns">
+                        <label>Title</label>
+                        <input type="text" name="title[0]" id="title[0]" placeholder="Title" />
+                    </div>
+                    <div class="small-9 large-4 columns">
+                        <label>Entry</label>
+                        <textarea name="entry[0]" id="entry[0]" placeholder="Entry" row="1"></textarea>
+                    </div>
+                    <div class="small-3 large-2 columns">
+                        <label>Point</label>
+                        <input type="number" name="point[0]" id="point[0]" placeholder="Point" />
+                    </div>
                 </div>
-                <div class="small-5 large-2 columns">
-                    <label>Title</label>
-                    <input type="text" name="title" id="title" placeholder="Title" />
-                </div>
-                <div class="small-9 large-4 columns">
-                    <label>Entry</label>
-                    <textarea name="entry" id="entry" placeholder="Entry" row="1"></textarea>
-                </div>
-                <div class="small-3 large-2 columns">
-                    <label>Point</label>
-                    <input type="number" placeholder="Point" />
-                </div>
+
             </div>
         </form>
 
-
     </div>
+    <div class="row small-12 medium-9 align-center">
+        <div class="row">
+            <div class="small-12 columns">
+                <button class="button small" id="addnew" name="addnew" value="Add new item">Add new entry</button>
+                <input type="hidden" id="items" name="items" value="1" />
+            </div>
+        </div>
+    </div>
+
+
 
 
 
@@ -101,6 +126,25 @@
     <script src="js/vendor/what-input.min.js"></script>
     <script src="js/vendor/foundation.min.js"></script>
     <script src="js/app.js"></script>
+
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            var currentItem = 0;
+            var currentId = 1;
+            $('#addnew').click(function() {
+                currentItem++;
+                currentId++;
+                $('#items').val(currentItem, currentId);
+                var strToAdd = '<div class="row"><div class="small-2 large-1 shrink columns"><label>' + currentId + '</label></div><div class="small-5 large-3 columns"><input type="date" name="date[' + currentItem + ']" id="date[' +
+                    currentItem +
+                    ']" placeholder="" /></div><div class="small-5 large-2 columns"><input type="text" name="title[' + currentItem + ']" id="title[' + currentItem +
+                    ']" placeholder="Title" /></div><div class="small-9 large-4 columns"><textarea name="entry[' + currentItem + ']" id="entry[' + currentItem +
+                    ']" placeholder="Entry" row="1"></textarea></div><div class="small-3 large-2 columns"><input type="number" name="point[' + currentItem + ']" id="point[' + currentItem + ']" placeholder="Point" /></div></div>';
+                $('#data').append(strToAdd);
+
+            });
+        });
+    </script>
 </body>
 
 </html>
